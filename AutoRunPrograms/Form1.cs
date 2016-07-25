@@ -22,16 +22,21 @@ namespace AutoRunPragrams
         public Form1()
         {
             CheckForIllegalCrossThreadCalls = false;
-            InitializeComponent();            
-        }
+            InitializeComponent();
+
+            this.FormClosed += (ee,ss)=> {
+                Environment.Exit(0);
+            };    
+        }        
 
         private void Form1_Load(object sender, EventArgs e)
         {
             timer1.Interval = 1000;
             int i = 0;
             timer1.Tick += (ss,ee) => {
-                label1.Text = "当前启动" + i + "秒，180秒之后启动添加程序";
-            };           
+                label1.Text = "当前启动" + (++i) + "秒，180秒后启动程序";
+            };
+            timer1.Start();  
 
             ConfigFile = Environment.GetFolderPath(Environment.SpecialFolder.CommonDocuments) + "/AutoRunPrograms.cfg";
             List<FileItem> list= Read();
