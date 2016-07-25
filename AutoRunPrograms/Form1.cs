@@ -27,6 +27,12 @@ namespace AutoRunPragrams
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            timer1.Interval = 1000;
+            int i = 0;
+            timer1.Tick += (ss,ee) => {
+                label1.Text = "当前启动" + i + "秒，180秒之后启动添加程序";
+            };           
+
             ConfigFile = Environment.GetFolderPath(Environment.SpecialFolder.CommonDocuments) + "/AutoRunPrograms.cfg";
             List<FileItem> list= Read();
             try
@@ -39,7 +45,7 @@ namespace AutoRunPragrams
                 {
                     Thread th = new Thread(delegate ()
                     {
-                        Thread.Sleep(1000 * 60 * 2);
+                        Thread.Sleep(1000 * 60 * 3);
                         
                         foreach (FileItem item in list)
                         {
@@ -113,6 +119,14 @@ namespace AutoRunPragrams
                 return null;
             }
             
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            foreach (string item in listboxPrograms.Items)
+            {
+                Process.Start(item);
+            }
         }
     }
 }

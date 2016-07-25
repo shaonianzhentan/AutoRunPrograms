@@ -28,11 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.listboxPrograms = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnStart = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -49,6 +53,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnStart);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -59,7 +65,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(901, 22);
+            this.btnDelete.Location = new System.Drawing.Point(244, 24);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(192, 57);
             this.btnDelete.TabIndex = 2;
@@ -69,7 +75,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(24, 22);
+            this.btnAdd.Location = new System.Drawing.Point(24, 24);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(192, 57);
             this.btnAdd.TabIndex = 1;
@@ -86,6 +92,27 @@
             this.panel2.Size = new System.Drawing.Size(1117, 764);
             this.panel2.TabIndex = 2;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("宋体", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(464, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(151, 43);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "label1";
+            // 
+            // btnStart
+            // 
+            this.btnStart.Location = new System.Drawing.Point(903, 22);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(192, 57);
+            this.btnStart.TabIndex = 4;
+            this.btnStart.Text = "立即启动";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
@@ -97,6 +124,7 @@
             this.Text = "开机启动程序";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -109,6 +137,9 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btnStart;
     }
 }
 
