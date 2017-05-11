@@ -34,7 +34,7 @@ namespace AutoRunPragrams
             timer1.Interval = 1000;
             int i = 0;
             timer1.Tick += (ss,ee) => {
-                label1.Text = "当前启动" + (++i) + "秒，180秒后启动程序";
+                label1.Text = "当前启动" + (++i) + "秒，300秒后启动程序";
             };
             timer1.Start();  
 
@@ -50,7 +50,7 @@ namespace AutoRunPragrams
                 {
                     Thread th = new Thread(delegate ()
                     {
-                        Thread.Sleep(1000 * 60 * 3);
+                        Thread.Sleep(1000 * 60 * 5);
                         
                         foreach (FileItem item in list)
                         {
